@@ -1,0 +1,41 @@
+{
+  "name": "my-angular-seed",
+  "version": "0.0.1",
+  "description": "my seed for angular projects",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattCain/my-angular-seed.git"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "Matt Cain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattCain/my-angular-seed/issues"
+  },
+  "homepage": "https://github.com/MattCain/my-angular-seed",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "bower": "~1.4.1",
+    "load-grunt-tasks": "~3.2.0",
+    "grunt-concurrent": "~1.0.0",
+    "grunt-coffeelint": "0.0.13",
+    "grunt-contrib-less": "~1.0.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-coffee": "~0.13.0",
+    "grunt-filerev": "~2.3.1",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-cssmin": "~0.12.3",
+    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-autoprefixer": "~3.0.1",
+    "grunt-contrib-connect": "~0.10.1",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-htmlmin": "~0.4.0",
+    "grunt-usemin": "~3.0.0",
+    "grunt-contrib-imagemin": "~0.9.4",
+    "grunt-svgmin": "~2.0.1"
+  }
+}
