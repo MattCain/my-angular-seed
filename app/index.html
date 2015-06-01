@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="MyAngularSeed"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,10 +34,22 @@
 
         <div id="main" class="ui stackable page grid">
             <div class="two column centered row">
-                <div id="navigation" class="column four wide"></div>
+                <div id="navigation" class="column four wide">
+                    <div class="ui vertical menu fluid">
+                        <div class="header item">
+                            Navigation
+                        </div>
+                        <a href="#/" class="item">
+                            Home
+                        </a>
+                        <a href="#/page2" class="item">
+                            Page 2
+                        </a>
+                    </div>
+                </div>
 
                 <div id="content-area" class="column twelve wide">
-                    <div id="content"></div>
+                    <div id="content" ng-view></div>
                 </div>
             </div>
         </div>
@@ -50,11 +62,13 @@
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/semantic-ui/dist/semantic.js"></script>
         <!-- endbuild -->
 
         <!-- build:js(.tmp) scripts/app.min.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/routes.js"></script>
         <!-- endbuild -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
