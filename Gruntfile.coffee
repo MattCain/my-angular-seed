@@ -23,9 +23,9 @@ module.exports = (grunt) ->
                livereload: "<%= connect.options.livereload %>"
             files: [
                "<%= app %>/*.html",
+               "<%= app %>/templates/{,*/}*.html",
                ".tmp/styles/{,*/}*.css",
                "{.tmp,<%= app %>}/scripts/{,*/}*.js",
-               "<%= app %>/coffee/{,*/}*.coffee",
                "<%= app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
             ]
 
