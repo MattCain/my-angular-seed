@@ -217,7 +217,5 @@ module.exports = (grunt) ->
    ])
 
    grunt.registerTask("default", [
-      "jshint",
-      "test",
       "build"
    ])
