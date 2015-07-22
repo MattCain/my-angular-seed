@@ -166,7 +166,7 @@ module.exports = (grunt) ->
       coffeelint:
          options:
             indentation:
-               value: 2
+               value: 3
             max_line_length:
                value: 120
          server:
