@@ -1,1 +1,1 @@
-angular.module("MyAngularSeed", ["ngRoute"])
+angular.module("myAngularSeed", ["ui.router"])

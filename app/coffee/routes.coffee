@@ -1,12 +1,13 @@
-angular.module("MyAngularSeed")
-.config(["$routeProvider", ($routeProvider) ->
+angular.module("myAngularSeed")
+  .config(($stateProvider) ->
 
-   $routeProvider
-   .when("/",
-      templateUrl: "templates/index.html"
-   )
-   .when("/page2",
-      templateUrl: "templates/page2.html"
-   )
-
-])
+    $stateProvider
+      .state("index",
+        url: ""
+        templateUrl: "templates/index.html"
+      )
+      .state("page2",
+        url: "page2"
+        templateUrl: "templates/page2.html"
+      )
+  )

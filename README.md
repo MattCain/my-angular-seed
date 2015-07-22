@@ -12,10 +12,10 @@ Use `grunt serve` to run the connect server for development, use `grunt build` t
 
 Included Dependencies:
 
-* Angular + ngRoute
+* Angular + ui.router
+* Bootstrap + ngBootstrap
 * jQuery
 * Underscore
-* Semantic-UI
 
 Development stack:
 
