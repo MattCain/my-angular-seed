@@ -10,14 +10,14 @@ module.exports = (grunt) ->
 
       watch:
          less:
-            files: ["<%= app %>/styles/{,*/}*.less"]
-            tasks: ["less"]
+            files: ["<%= app %>/styles/{,*/}*.styl"]
+            tasks: ["stylus:dev"]
          coffee:
             files: ["<%= app %>/coffee/{,*/}*.coffee"]
             tasks: ["coffee:server", "coffeelint:server"]
          styles:
             files: ["<%= app %>/styles/{,*/}*.css"]
-            tasks: ["copy:styles", "autoprefixer"]
+            tasks: ["postcss"]
          livereload:
             options:
                livereload: "<%= connect.options.livereload %>"
@@ -71,26 +71,29 @@ module.exports = (grunt) ->
                ]
             ]
 
-      less:
-         all:
-            files: [
-               expand: true
-               cwd: "<%= app %>/styles"
-               src: ["*.less"]
-               dest: ".tmp/styles/"
-               ext: ".css"
-            ]
-
-      autoprefixer:
-         options:
-            browsers: ["last 8 versions"]
+      stylus:
          dist:
             files: [
-               expand: true
-               cwd: ".tmp/styles/"
-               src: "{,*/}*.css"
-               dest: ".tmp/styles/"
+               ".tmp/styles/app.css": "<%= app %>/styles/app.styl"
             ]
+         dev:
+            options:
+               compress: false
+               linenos: true
+            files: [
+               ".tmp/styles/app.css": "<%= app %>/styles/app.styl"
+            ]
+
+      postcss:
+         options:
+            map: true
+            processors: [
+               require('autoprefixer-core')(
+                  browsers: ['last 4 versions']
+               )
+            ]
+         dist:
+            src: ".tmp/styles/*.css"
 
       useminPrepare:
          options:
@@ -179,12 +182,12 @@ module.exports = (grunt) ->
 
       concurrent:
          server: [
-            "less",
+            "stylus:dev",
             "coffeelint:server",
             "coffee:server"
          ]
          dist: [
-            "less",
+            "stylus:dist",
             "coffeelint:dist",
             "coffee:dist",
             "imagemin",
@@ -197,7 +200,7 @@ module.exports = (grunt) ->
       grunt.task.run([
          "clean:server",
          "concurrent:server",
-         "autoprefixer",
+         "postcss",
          "connect:livereload",
          "watch"
       ])
@@ -207,7 +210,7 @@ module.exports = (grunt) ->
       "clean:dist",
       "useminPrepare",
       "concurrent:dist",
-      "autoprefixer",
+      "postcss",
       "concat:generated",
       "cssmin:generated",
       "uglify:generated",
